@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Terra Carphatica webpage",
   "main": "index.html",
-  "repository" : "https://github.com/giTomas/Terra-Carphatica-react",
+  "repository": "https://github.com/giTomas/Terra-Carphatica-react",
   "scripts": {
     "start": "webpack -d && webpack-dev-server -inline --hot",
     "build": "webpack -p"
@@ -21,6 +21,7 @@
     "react-dom": "^15.3.2",
     "react-highlighter": "^0.3.3",
     "react-router": "^4.0.0-alpha.6",
+    "shortid": "^2.2.6",
     "whatwg-fetch": "^2.0.1"
   },
   "devDependencies": {

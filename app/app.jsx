@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react';
-import { HashRouter, Match, Miss, Link } from 'react-router';
+import { HashRouter, Match, Miss } from 'react-router';
 // import styles from './styles/style';
-// import {}
-
-// todo: routing
+import Navigation from './components/navigation';
 
 const Default = ({ pathname }) =>
   <h1>{ pathname.replace('/', '') }</h1>;
@@ -27,19 +25,11 @@ NoMatch.propTypes = {
 const App = () => (
   <HashRouter>
     <div>
-      <ul>
-        <li><Link to="/">Úvod</Link></li>
-        <li><Link to="/o-nas">O nás</Link></li>
-        <li><Link to="/sekcie">Sekcie</Link></li>
-        <li><a href="/app/assets/docs/stanovy.pdf">Stanovy</a></li>
-        <li><Link to="/kontakt">Kontakt</Link></li>
-      </ul>
-      <hr />
+      <Navigation />
 
       <Match exactly pattern="/" component={Default} />
       <Match pattern="/o-nas" component={Default} />
       <Match pattern="/sekcie" component={Default} />
-      {/* <Match pattern="/stanovy" component={Default} /> */}
       <Match pattern="/kontakt" component={Default} />
 
       <Miss component={NoMatch} />

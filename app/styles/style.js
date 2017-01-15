@@ -1,18 +1,20 @@
-import Color from 'color';
-import deepFreeze from 'deep-freeze';
+// import Color from 'color';
+// import deepFreeze from 'deep-freeze';
 import Prefixer from 'inline-style-prefixer';
-import { addUnits } from '../helpers/helpers';
 
 // variables
-const colors = {};
-colors.green = 'hsl(104, 90%, 28%)';
-colors.brown = 'hsl(46, 50%, 57%)';
-colors.background = 'hsl(0, 0%, 93%)';
-colors.text.primary = 'hsl(0, 0%, 10%)';
-colors.text.secondary = 'hsl(0, 0%, 93%)';
-colors.text.lighten = 'hsl(0, 0%, 45%)';
+export const colors = {
+  green: 'hsl(104, 90%, 28%)',
+  brown: 'hsl(46, 50%, 57%)',
+  background: 'hsl(0, 0%, 93%)',
+  text: {
+    primary: 'hsl(0, 0%, 10%)',
+    secondary: 'hsl(0, 0%, 93%)',
+    lighten: 'hsl(0, 0%, 45%)',
+  },
+};
 
-const fontSize = {
+export const fontSize = {
   small: 0.844,
   base: 1.125,
   large_1: 1.5,
@@ -23,25 +25,24 @@ const fontSize = {
   large_6: 6.313,
 };
 
-const baseLineHeight = 1.5
-//addUnits!!
-const verticalRhytm = (baseLineHeight + fontSize.base);
-const padding = verticalRhytm;
-const margin = verticalRhytm;
+export const baseLineHeight = 1.55;
+// addUnits!!
+export const verticalRhytm = (baseLineHeight * fontSize.base);
+export const padding = verticalRhytm;
+export const margin = verticalRhytm;
 
-const transition = '0.22s ease-out 0.1s';
+export const transition = '0.22s ease-out 0.1s';
+
+export const fonts = {};
+fonts.gentiumBookBasic = '"Gentium Book Basic", serif';
+fonts.gentiumBasic = '"Gentium Basic", serif;';
+fonts.oswald = '"Oswald", sans-serif';
 
 //------------------------------------------------------------------------------
 
-const unprefixed = {};
+export const prefixer = new Prefixer({ userAgent: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/25.0.1216.0 Safari/537.2' });
 
-unprefixed.banner = {
-  backgroundColor: 'blue',
-};
-
-const prefixer = new Prefixer({ userAgent: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/25.0.1216.0 Safari/537.2' });
-
-const style = deepFreeze(prefixer.prefix(unprefixed));
-
-
-export default style;
+// const style = deepFreeze(prefixer.prefix(unprefixed));
+//
+//
+// export default style;
