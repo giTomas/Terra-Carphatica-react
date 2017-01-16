@@ -4,7 +4,7 @@ import shortid from 'shortid';
 import Container from './container';
 import { addUnits, isNotPdf } from '../helpers/helpers';
 import { transition, margin, fonts, colors, fontSize, prefixer, baseLineHeight } from '../styles/style';
-import routes from '../data/routes';
+import routes from '../data/ui/routes';
 
 const unprefixed = {};
 
@@ -56,11 +56,18 @@ unprefixed.link = {
   transition: `border-color ${transition}`,
 };
 
+unprefixed.linkHover = {
+  borderColor: colors.text.secondary,
+};
 
 const style = prefixer.prefix(unprefixed);
 
 const NavLink = ({ content, path }) => (
-  <li style={style.li}><Link style={style.link} to={path}>{content}</Link></li>
+  <li style={style.li}>
+    <Link style={style.link} activeOnlyWhenExact activeStyle={style.linkHover} to={path}>
+      {content}
+    </Link>
+  </li>
 );
 
 NavLink.propTypes = {
@@ -69,37 +76,38 @@ NavLink.propTypes = {
 };
 
 
-const NavList = ({ linkList }) => (
-  <nav style={{ position: 'relative' }}>
-    <ul style={style.ul}>
-      {linkList}
-    </ul>
-  </nav>
-);
-
-NavList.propTypes = {
-  linkList: PropTypes.array.isRequired,
+const NavList = ({ uiData }) => {
+  const list = uiData.map(({ name, pattern }) => (
+    isNotPdf(pattern) ?
+      <NavLink
+        key={shortid.generate()}
+        content={name}
+        path={pattern}
+      /> :
+      <li
+        style={style.li}
+        key={shortid.generate()}
+      >
+        <a
+          style={style.link}
+          href={pattern}
+        >
+          {name}
+        </a>
+      </li>
+  ));
+  return (
+    <nav style={{ position: 'relative' }}>
+      <ul style={style.ul}>
+        {list}
+      </ul>
+    </nav>
+  );
 };
 
-const list = routes.map(({ name, pattern }) => (
-  isNotPdf(pattern) ?
-    <NavLink
-      key={shortid.generate()}
-      content={name}
-      path={pattern}
-    /> :
-    <li
-      style={style.li}
-      key={shortid.generate()}
-    >
-      <a
-        style={style.link}
-        href={pattern}
-      >
-        {name}
-      </a>
-    </li>
-));
+NavList.propTypes = {
+  uiData: PropTypes.array.isRequired,
+};
 
 const Navigation = () => (
   <div style={style.navbar}>
@@ -107,7 +115,8 @@ const Navigation = () => (
       <Link style={style.title} to="/">
         Terra Carphatica
       </Link>
-      <NavList linkList={list} />
+      <NavList uiData={routes} />
+      {/* <NavList linkList={list} /> */}
     </Container>
   </div>
 );

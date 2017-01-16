@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { HashRouter, Match, Miss } from 'react-router';
+import { Match, Miss, BrowserRouter } from 'react-router';
 // import styles from './styles/style';
 import Navigation from './components/navigation';
 
@@ -21,9 +21,8 @@ NoMatch.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-
 const App = () => (
-  <HashRouter>
+  <BrowserRouter>
     <div>
       <Navigation />
 
@@ -34,7 +33,7 @@ const App = () => (
 
       <Miss component={NoMatch} />
     </div>
-  </HashRouter>
+  </BrowserRouter>
 );
 
 export default App;

@@ -30,8 +30,7 @@ export const baseLineHeight = 1.55;
 export const verticalRhytm = (baseLineHeight * fontSize.base);
 export const padding = verticalRhytm;
 export const margin = verticalRhytm;
-
-export const transition = '0.22s ease-out 0.1s';
+export const transition = '0.66s ease-out 0.1s';
 
 export const fonts = {};
 fonts.gentiumBookBasic = '"Gentium Book Basic", serif';
@@ -41,8 +40,3 @@ fonts.oswald = '"Oswald", sans-serif';
 //------------------------------------------------------------------------------
 
 export const prefixer = new Prefixer({ userAgent: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.2 (KHTML, like Gecko) Chrome/25.0.1216.0 Safari/537.2' });
-
-// const style = deepFreeze(prefixer.prefix(unprefixed));
-//
-//
-// export default style;
