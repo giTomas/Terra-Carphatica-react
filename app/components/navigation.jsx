@@ -37,7 +37,7 @@ unprefixed.title = {
   letterSpacing: '0.04rem',
   textDecoration: 'none',
   color: colors.text.secondary,
-  visibility: 'hidden',
+  // visibility: 'hidden',
 };
 
 unprefixed.li = {
