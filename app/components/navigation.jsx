@@ -62,9 +62,9 @@ unprefixed.linkHover = {
 
 const style = prefixer.prefix(unprefixed);
 
-const NavLink = ({ content, path }) => (
+const NavLink = ({ content, path, exact }) => (
   <li style={style.li}>
-    <Link style={style.link} activeOnlyWhenExact activeStyle={style.linkHover} to={path}>
+    <Link style={style.link} activeOnlyWhenExact={exact} activeStyle={style.linkHover} to={path}>
       {content}
     </Link>
   </li>
@@ -73,14 +73,16 @@ const NavLink = ({ content, path }) => (
 NavLink.propTypes = {
   content: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  exact: PropTypes.bool.isRequired,
 };
 
 
 const NavList = ({ uiData }) => {
-  const list = uiData.map(({ name, pattern }) => (
+  const list = uiData.map(({ name, pattern, exactly }) => (
     isNotPdf(pattern) ?
       <NavLink
         key={shortid.generate()}
+        exact={exactly}
         content={name}
         path={pattern}
       /> :
@@ -109,6 +111,14 @@ NavList.propTypes = {
   uiData: PropTypes.array.isRequired,
 };
 
+const handleEvent = (event) => {
+  switch (event) {
+    case 'mouseenter': return;
+    default:
+
+  }
+};
+
 const Navigation = () => (
   <div style={style.navbar}>
     <Container customStyle={style.container}>
@@ -116,7 +126,6 @@ const Navigation = () => (
         Terra Carphatica
       </Link>
       <NavList uiData={routes} />
-      {/* <NavList linkList={list} /> */}
     </Container>
   </div>
 );

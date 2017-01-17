@@ -1,12 +1,15 @@
 import React, { PropTypes } from 'react';
 import { Match, Miss, BrowserRouter } from 'react-router';
 import shortid from 'shortid';
-// import styles from './styles/style';
-import Navigation from './components/navigation';
+import Navigation from './containers/navigation';
 import routes from './data/ui/routes';
 
 const Default = ({ pathname }) =>
   <h1>{ pathname.replace('/', '') }</h1>;
+
+Default.propTypes = {
+  pathname: PropTypes.string.isRequired,
+};
 
 const NoMatch = ({ location }) => (
   <div>
@@ -15,48 +18,45 @@ const NoMatch = ({ location }) => (
   </div>
 );
 
-Default.propTypes = {
-  pathname: PropTypes.string.isRequired,
-};
-
 NoMatch.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-const componentChoose = (choosen) => {
-  switch (choosen) {
-    case 'Home': return Default;
-    default: return Default;
+// const components = (choosen) => {
+//   switch (choosen) {
+//     case 'Uvod': return Default;
+//     case 'ONas': return Default;
+//     case 'Sekcie': return Default;
+//     case 'Kontakt': return Default;
+//     default: return Default;
+//   }
+// };
 
-  }
+const components = {
+  Uvod: Default,
+  ONas: Default,
+  Sekcie: Default,
+  Kontakt: Default,
 };
 
-console.log(this);
+const matches = routes.map(({ pattern, component, exactly }) => (
+  <Match
+    key={shortid.generate()}
+    exactly={exactly}
+    pattern={pattern}
+    component={components[component]}
+  />
+  ),
+);
 
-const App = () => {
-  const matches = routes.map(({ pattern, component, exactly }) => (
-    <Match
-      key={shortid.generate()}
-      exactly={exactly}
-      pattern={pattern}
-      component={componentChoose(component)}
-    />
-   )
-  );
-  return (
-    <BrowserRouter>
-      <div>
-        <Navigation />
-        { matches }
-        {/* <Match exactly pattern="/" component={Default} />
-        <Match pattern="/o-nas" component={Default} />
-        <Match pattern="/sekcie" component={Default} />
-        <Match pattern="/kontakt" component={Default} /> */}
-
-        <Miss component={NoMatch} />
-      </div>
-    </BrowserRouter>
-  );
-};
+const App = () => (
+  <BrowserRouter>
+    <div>
+      <Navigation />
+      { matches }
+      <Miss component={NoMatch} />
+    </div>
+  </BrowserRouter>
+);
 
 export default App;

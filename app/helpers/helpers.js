@@ -20,7 +20,7 @@ export const addState = (data, state) =>
 
 export const addUnits = (value, unit) => `${value + unit}`;
 
-const testString = (regEx, flag, string) =>
+const stringNotContain = (regEx, flag, string) =>
   !(new RegExp(regEx, flag)).test(string);
 
-export const isNotPdf = partial(testString, '.pdf$', 'i');
+export const isNotPdf = partial(stringNotContain, '.pdf$', 'i');
