@@ -3,14 +3,25 @@
 import Prefixer from 'inline-style-prefixer';
 
 // variables
+// export const colors = {
+//   green: 'hsl(104, 90%, 28%)',
+//   brown: 'hsl(46, 50%, 57%)',
+//   background: 'hsl(0, 0%, 93%)',
+//   text: {
+//     primary: 'hsl(0, 0%, 10%)',
+//     secondary: 'hsl(0, 0%, 93%)',
+//     lighten: 'hsl(0, 0%, 45%)',
+//   },
+// };
+
 export const colors = {
-  green: 'hsl(104, 90%, 28%)',
-  brown: 'hsl(46, 50%, 57%)',
-  background: 'hsl(0, 0%, 93%)',
+  primary: 'hsl(210, 10%, 23%)',
+  secondary: 'hsl(210, 9%, 31%)',
+  background: 'hsl(210, 17%, 98%)',
   text: {
-    primary: 'hsl(0, 0%, 10%)',
-    secondary: 'hsl(0, 0%, 93%)',
-    lighten: 'hsl(0, 0%, 45%)',
+    primary: 'hsl(210, 11%, 15%)',
+    secondary: 'hsl(210, 17%, 98%)',
+    lighten: 'hsl(210, 11%, 71%)',
   },
 };
 

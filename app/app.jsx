@@ -1,11 +1,21 @@
 import React, { PropTypes } from 'react';
 import { Match, Miss, BrowserRouter } from 'react-router';
 import shortid from 'shortid';
+import styled from 'styled-components';
 import Navigation from './containers/navigation';
 import routes from './data/ui/routes';
+import Uvod from './containers/uvod';
+import Container from './containers/elements/container';
+import { fonts, fontSize, colors } from './styles/style';
+import Main from './containers/elements/main';
 
-const Default = ({ pathname }) =>
-  <h1>{ pathname.replace('/', '') }</h1>;
+const Default = ({ pathname }) => (
+  <Main>
+    <Container>
+      <h1>{pathname.replace('/', '')}</h1>
+    </Container>
+  </Main>
+);
 
 Default.propTypes = {
   pathname: PropTypes.string.isRequired,
@@ -33,7 +43,7 @@ NoMatch.propTypes = {
 // };
 
 const components = {
-  Uvod: Default,
+  Uvod,
   ONas: Default,
   Sekcie: Default,
   Kontakt: Default,
@@ -46,16 +56,45 @@ const matches = routes.map(({ pattern, component, exactly }) => (
     pattern={pattern}
     component={components[component]}
   />
-  ),
+ ),
+);
+
+const Body = styled.div`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+`;
+
+const Footer = styled.footer`
+  background-color: ${colors.primary};
+`;
+
+const Copyright = styled.div`
+  font-family: ${fonts.oswald};
+  font-weight: 300;
+  letter-spacing: calc(1em * 0.0825);
+  font-size: ${fontSize.small};
+  color: ${colors.text.secondary};
+  padding: 1em 0;
+  margin-left: auto;
+`;
+
+const FooterModule = () => (
+  <Footer>
+    <Container flex>
+      <Copyright> &copy; {(new Date()).getFullYear()} </Copyright>
+    </Container>
+  </Footer>
 );
 
 const App = () => (
   <BrowserRouter>
-    <div>
+    <Body>
       <Navigation />
       { matches }
       <Miss component={NoMatch} />
-    </div>
+      <FooterModule />
+    </Body>
   </BrowserRouter>
 );
 

@@ -1,7 +1,7 @@
 import { PropTypes } from 'react';
 import styled from 'styled-components';
-import { addUnits } from '../helpers/helpers';
-import { padding, margin } from '../styles/style';
+import { addUnits } from '../../helpers/helpers';
+import { padding, margin } from '../../styles/style';
 
 // const container = prefixer.prefix({
 //   maxWidth: `calc(960px + (2 * ${addUnits(margin, 'rem')}))`,
@@ -28,8 +28,8 @@ const Container = styled.div`
 `;
 
 Container.propTypes = {
-  children: PropTypes.array.isRequired,
-  flex: PropTypes.bool.isRequired,
+  // children: PropTypes.array.isRequired,
+  flex: PropTypes.bool,
 };
 
 export default Container;

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import shortid from 'shortid';
 import styled, { css } from 'styled-components';
-import Container from './container';
+import Container from './elements/container';
 import { addUnits, isNotPdf } from '../helpers/helpers';
 import { transition, margin, fonts, colors, fontSize, prefixer, baseLineHeight } from '../styles/style';
 import routes from '../data/ui/routes';
@@ -20,46 +20,40 @@ unprefixed.ul = {
 //   // justifyContent: 'flex-end',
 // };
 
-unprefixed.title = {
-  fontSize: addUnits(fontSize.large_1, 'rem'),
-  fontVariant: 'small-caps',
-  letterSpacing: '0.04rem',
-  textDecoration: 'none',
-  color: colors.text.secondary,
-  // visibility: 'hidden',
-};
-
-// unprefixed.link = {
-//   height: '100%',
-//   display: 'flex',
-//   alignItems: 'center',
+// unprefixed.title = {
+//   fontSize: addUnits(fontSize.large_1, 'rem'),
+//   fontVariant: 'small-caps',
+//   letterSpacing: 'calc(1em * 0.333)',
 //   textDecoration: 'none',
 //   color: colors.text.secondary,
-//   // paddingTop: 4,
-//   borderBottom: '4px solid transparent',
-//   transition: `border-color ${transition}`,
+//   paddingTop: '1em',
+//   paddingBottom: '1em',
+//   // fontWeight: 300,
+//   // visibility: 'hidden',
 // };
-//
-// unprefixed.linkHover = {
-//   borderColor: colors.text.secondary,
-// };
+
+unprefixed.linkHover = {
+  borderColor: colors.text.secondary,
+};
 
 const style = prefixer.prefix(unprefixed);
 
 const ListItem = styled.li`
   height: 100%;
-  padding-left: ${addUnits((margin / 2), 'rem')}
+  padding-left: ${addUnits((margin / 2), 'rem')};
+  display: flex;
+  align-items: center;
 `;
 
 const linkWrapper = css`
-  height: 100%;
-  display: flex;
-  align-items: center,
+  font-size: ${addUnits(fontSize.small, 'rem')}
   text-decoration: none;
   color: ${colors.text.secondary};
-  padding-top: 4px;
-  border-bottom: 4px solid transparent;
+  padding-top: calc(1em * 0.0825);
+  border-bottom: calc(1em * 0.0825) solid transparent;
   transition: border-color ${transition};
+  letter-spacing: calc(1em * 0.165);
+  ${''/* font-weight: 300; */}
 
   &:hover {
     border-color: ${colors.text.secondary}
@@ -112,26 +106,35 @@ const NavList = ({ uiData }) => {
   );
 };
 
-
-const NavBar = styled.div`
+const Header = styled.div`
   font-family: ${fonts.oswald};
   ${''/* position: fixed; */}
   width: 100%;
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${colors.green};
+  background-color: ${colors.primary};
   z-index: 99;
   line-height: ${baseLineHeight};
 `;
 
-NavBar.propTypes = {
-  children: PropTypes.array.isRequired,
+Header.propTypes = {
+  children: PropTypes.object.isRequired,
 };
 
 NavList.propTypes = {
   uiData: PropTypes.array.isRequired,
 };
+
+const TitleLink = styled(Link)`
+  font-size: ${addUnits(fontSize.large_1, 'rem')};
+  font-variant: small-caps;
+  letter-spacing: calc(1em * 0.333);
+  text-decoration: none;
+  color: ${colors.text.secondary};
+  padding-top: 1em;
+  padding-bottom: 1em;
+`;
 
 // const handleEvent = (event) => {
 //   switch (event) {
@@ -142,14 +145,14 @@ NavList.propTypes = {
 // };
 
 const Navigation = () => (
-  <NavBar>
+  <Header>
     <Container flex>
-      <Link style={style.title} to="/">
+      <TitleLink to="/">
         Terra Carphatica
-      </Link>
+      </TitleLink>
       <NavList uiData={routes} />
     </Container>
-  </NavBar>
+  </Header>
 );
 
 export default Navigation;
