@@ -4,7 +4,7 @@ import shortid from 'shortid';
 import styled, { css } from 'styled-components';
 import Container from './elements/container';
 import { addUnits, isNotPdf } from '../helpers/helpers';
-import { transition, margin, fonts, colors, fontSize, prefixer, baseLineHeight } from '../styles/style';
+import { transition, margin, padding, fonts, colors, fontSize, prefixer, baseLineHeight } from '../styles/style';
 import routes from '../data/ui/routes';
 
 const unprefixed = {};
@@ -132,8 +132,7 @@ const TitleLink = styled(Link)`
   letter-spacing: calc(1em * 0.333);
   text-decoration: none;
   color: ${colors.text.secondary};
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: ${addUnits(padding / 2, 'rem')} 0;
 `;
 
 // const handleEvent = (event) => {

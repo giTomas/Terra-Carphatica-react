@@ -3,7 +3,8 @@ import { Match, Miss, BrowserRouter } from 'react-router';
 import shortid from 'shortid';
 import styled from 'styled-components';
 import Navigation from './containers/navigation';
-import routes from './data/ui/routes';
+import routes from './data/ui/routes.json';
+import categories from './data/ui/categories.json';
 import Uvod from './containers/uvod';
 import Container from './containers/elements/container';
 import { fonts, fontSize, colors } from './styles/style';
@@ -47,9 +48,14 @@ const components = {
   ONas: Default,
   Sekcie: Default,
   Kontakt: Default,
+  Priroda: Default,
+  Kultura: Default,
+  Historia: Default,
+  OchranaKrajiny: Default,
+  ReportyZTerenu: Default,
 };
 
-const matches = routes.map(({ pattern, component, exactly }) => (
+const matches = [...routes, ...categories].map(({ pattern, component, exactly }) => (
   <Match
     key={shortid.generate()}
     exactly={exactly}

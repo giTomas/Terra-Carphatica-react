@@ -3,6 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from './elements/container';
 import Main from './elements/main';
+import Sections from './sections';
+import Members from './members';
 import { addUnits } from '../helpers/helpers';
 import { margin } from '../styles/style';
 
@@ -11,27 +13,38 @@ const Banner = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 60vh;
+  height: 40vh;
   position: relative;
   margin-bottom: ${addUnits((margin * 2), 'rem')};
   filter: grayscale(100%);
 `;
 
-class Uvod extends React.Component {
-  // constructor(props){
-  //   super(props);
-  // }
+// class Uvod extends React.Component {
+//   // constructor(props){
+//   //   super(props);
+//   // }
+//
+//   render() {
+//     return (
+//       <Main>
+//         <Banner />
+//         <Container>
+//           <Sections />
+//           <Members />
+//         </Container>
+//       </Main>
+//     );
+//   }
+// }
 
-  render() {
-    return (
-      <Main>
-        <Banner />
-        <Container>
-          <h1>{ this.constructor.name }</h1>
-        </Container>
-      </Main>
-    );
-  }
-}
+const Uvod = () => (
+  <Main>
+    <Banner />
+    <Container>
+      <Sections />
+      <Members />
+    </Container>
+  </Main>
+);
 
 export default Uvod;

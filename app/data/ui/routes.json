@@ -1,31 +1,30 @@
-[
-  {
-    "pattern": "/",
-    "name": "Úvod",
-    "component": "Uvod",
-    "exactly": true,
-  },
-  {
-    "pattern": "/o-nas",
-    "name": "O nás",
-    "component": "ONas",
-    "exactly": false,
-  },
-  {
-    "pattern": "/sekcie",
-    "name": "Sekcie",
-    "component": "Sekcie",
-    "exactly": false,
-  },
-  {
-    "pattern": "/app/assets/docs/stanovy.pdf",
-    "name": "Stanovy",
-    "exactly": false,
-  },
-  {
-    "pattern": "/kontakt",
-    "name": "Kontakt",
-    "component": "Kontakt",
-    "exactly": false,
-  },
-];
+[{
+	"pattern": "/",
+	"name": "Úvod",
+	"component": "Uvod",
+	"exactly": true,
+	"type": "navigation"
+}, {
+	"pattern": "/o-nas",
+	"name": "O nás",
+	"component": "ONas",
+	"exactly": false,
+	"type": "navigation"
+}, {
+	"pattern": "/sekcie",
+	"name": "Sekcie",
+	"component": "Sekcie",
+	"exactly": false,
+	"type": "navigation"
+}, {
+	"pattern": "/app/assets/docs/stanovy.pdf",
+	"name": "Stanovy",
+	"exactly": false,
+	"type": "navigation"
+}, {
+	"pattern": "/kontakt",
+	"name": "Kontakt",
+	"component": "Kontakt",
+	"exactly": false,
+	"type": "navigation"
+}]

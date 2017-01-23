@@ -1,0 +1,36 @@
+[{
+	"pattern": "/kategorie/priroda",
+	"name": "Príroda",
+	"component": "Priroda",
+	"exactly": false,
+	"type": "sections",
+	"thumb": "/app/assets/images/sekcie/thumb-akt-1.jpeg"
+}, {
+	"pattern": "/kategorie/kultura",
+	"name": "Kultúra",
+	"component": "Kultura",
+	"exactly": false,
+	"type": "sections",
+	"thumb": "/app/assets/images/sekcie/thumb-akt-2.jpeg"
+}, {
+	"pattern": "/kategorie/historia",
+	"name": "História",
+	"component": "Historia",
+	"exactly": false,
+	"type": "sections",
+	"thumb": "/app/assets/images/sekcie/thumb-akt-3.jpeg"
+}, {
+	"pattern": "/kategorie/ochrana-krajiny",
+	"name": "Ochrana krajiny",
+	"component": "OchranaKrajiny",
+	"exactly": false,
+	"type": "sections",
+	"thumb": "/app/assets/images/sekcie/thumb-akt-4.jpeg"
+}, {
+	"pattern": "/kategorie/reporty-z-terénu",
+	"name": "Reporty z terénu",
+	"component": "ReportyZTerenu",
+	"exactly": false,
+	"type": "sections",
+	"thumb": "/app/assets/images/sekcie/thumb-akt-4.jpeg"
+}]

@@ -48,10 +48,10 @@ const config = {
           test: /\.css$/,
           loader: "style-loader!css-loader",
         },
-        {
-          test: /\.json$/,
-          loader: "json"
-        },
+        // {
+        //   test: /\.json$/,
+        //   loader: "json"
+        // },
         {
           test: /\.(jpe?g|png|gif|svg)$/i,
           loaders: [
