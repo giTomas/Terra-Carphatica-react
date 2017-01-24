@@ -33,7 +33,7 @@ unprefixed.ul = {
 // };
 
 unprefixed.linkHover = {
-  borderColor: colors.text.secondary,
+  borderColor: colors.text.primary,
 };
 
 const style = prefixer.prefix(unprefixed);
@@ -48,7 +48,7 @@ const ListItem = styled.li`
 const linkWrapper = css`
   font-size: ${addUnits(fontSize.small, 'rem')}
   text-decoration: none;
-  color: ${colors.text.secondary};
+  color: ${colors.text.primary};
   padding-top: calc(1em * 0.0825);
   border-bottom: calc(1em * 0.0825) solid transparent;
   transition: border-color ${transition};
@@ -56,7 +56,7 @@ const linkWrapper = css`
   ${''/* font-weight: 300; */}
 
   &:hover {
-    border-color: ${colors.text.secondary}
+    border-color: ${colors.text.primary}
   }
 `;
 
@@ -108,14 +108,15 @@ const NavList = ({ uiData }) => {
 
 const Header = styled.div`
   font-family: ${fonts.oswald};
-  ${''/* position: fixed; */}
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${colors.primary};
+  background-color: ${colors.background};
   z-index: 99;
   line-height: ${baseLineHeight};
+  box-shadow: 0 1px 2px ${colors.text.primary};
 `;
 
 Header.propTypes = {
@@ -131,7 +132,7 @@ const TitleLink = styled(Link)`
   font-variant: small-caps;
   letter-spacing: calc(1em * 0.333);
   text-decoration: none;
-  color: ${colors.text.secondary};
+  color: ${colors.text.primary};
   padding: ${addUnits(padding / 2, 'rem')} 0;
 `;
 

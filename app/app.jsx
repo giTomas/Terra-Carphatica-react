@@ -13,7 +13,7 @@ import Main from './containers/elements/main';
 const Default = ({ pathname }) => (
   <Main>
     <Container>
-      <h1>{pathname.replace('/', '')}</h1>
+      <h1 style={{ marginTop: 100 }}>{pathname.replace('/', '')}</h1>
     </Container>
   </Main>
 );

@@ -13,10 +13,11 @@ const Banner = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 40vh;
+  height: 45vh;
   position: relative;
   margin-bottom: ${addUnits((margin * 2), 'rem')};
   filter: grayscale(100%);
+  margin-top: 65px;
 `;
 
 // class Uvod extends React.Component {
